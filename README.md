@@ -11,4 +11,4 @@ features include
 
 This is my very first module built with the python for geeks book.
 
-If you want references on how to use this module go to the [examples folder](https://github.com/) and here it contains 5 different tests each showing a use case of one or more of the function and methods provided by the package.
+If you want references on how to use this module go to the [examples folder](https://github.com/KidCoderT/my_first_package/tree/master/kct_pygame_utils/examples) and here it contains 5 different tests each showing a use case of one or more of the function and methods provided by the package.
