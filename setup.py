@@ -13,7 +13,7 @@ setup(
     author_email="tejas75o25@gmail.com",
     packages=["kct_pygame_tools", "kct_pygame_tools/ui"],
     python_requires=">=3.5, <4",
-    url="http://pypi.python.org/pypi/pygame_tools/",
+    url="https://test.pypi.org/project/kct-pygame-tools/",
     license="LICENSE.txt",
     description="A simple python library that provides utilities for pygame games",
     long_description=open("README.md").read(),
