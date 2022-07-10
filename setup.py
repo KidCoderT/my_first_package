@@ -8,7 +8,7 @@ classifiers = [
 
 setup(
     name="kct_pygame_utils",
-    version="1.0.0",
+    version="1.0.1",
     description="A simple python library that provides utilities for pygame games",
     long_description=open("README.md").read() + "\n\n" + open("CHANGELOG.txt").read(),
     url="https://github.com/KidCoderT/my_first_package",
