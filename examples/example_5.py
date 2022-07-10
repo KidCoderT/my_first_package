@@ -4,13 +4,18 @@
 Tests The Particle System with images and also
 tests the spritesheet class
 
+Just run and wait for a few seconds and you
+will see the leaves
+
 ============================================== 
 """
 import random
 import sys
 import pygame
 from pygame.locals import QUIT
-from .. import particles, image
+
+sys.path.append("../")
+from kct_pygame_tools import particles, image
 
 pygame.init()
 

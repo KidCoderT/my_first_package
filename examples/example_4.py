@@ -5,13 +5,18 @@ Tests The Blit and rotate method, pallete swap,
 multiline text methods, blit_text_center method
 and outline method
 
+When the App starts click any where on the
+screen so as to run the palette_swap method
+
 ============================================== 
 """
 import random
 import sys
 import pygame
 from pygame.locals import QUIT
-from .. import ui, image
+
+sys.path.append("../")
+from kct_pygame_tools import ui, image
 
 pygame.init()
 

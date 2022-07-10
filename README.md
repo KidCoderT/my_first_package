@@ -11,10 +11,28 @@ features include
 
 This is my very first module built with the python for geeks book.
 
-If you want references on how to use this module go to the [examples folder](https://github.com/KidCoderT/my_first_package/tree/master/kct_pygame_utils/examples) and here it contains 5 different tests each showing a use case of one or more of the function and methods provided by the package.
+If you want references on how to use this module go to the examples folder from the [root](https://github.com/KidCoderT/my_first_package) directory and here it contains 5 different tests each showing a use case of one or more of the function and methods provided by the package.
+
+best way to use is to write
+
+```
+import kct_pygame_tools as kpt
+```
+
+and from there use kpt.""the class or function""
+
+this package requires pillow and pygame to be installed. So usually it should
+by default install it but if it doesn't / gives an error saying it can find pygame or pillow,
+just manually install pygame and pillow then try again.
 
 # Change Log @KCT
 
 ## 0.0.1 (10/07/2020)
 
 - Initial release
+
+## 2.0.0 (10/07/2020)
+
+- Added documentation to sprite sheets class
+- added 2 new simplification classes
+- Fixed all the errors so you can finally use the module

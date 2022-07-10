@@ -10,8 +10,10 @@ Making Parallax Effect
 
 import sys
 import pygame
-from pygame.locals import QUIT, KEYDOWN
-from .. import ui, image
+from pygame.locals import QUIT
+
+sys.path.append("../")
+from kct_pygame_tools import ui, image
 
 pygame.init()
 

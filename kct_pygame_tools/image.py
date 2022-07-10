@@ -3,6 +3,7 @@ The module has methods that can transform an image,
 use sprite sheets, swap_image colors and give an outline to the image
 """
 
+from typing import Union
 import pygame
 from PIL import ImageColor
 from pygame.surface import Surface as img_surface
@@ -108,14 +109,40 @@ def load_and_scale(filename: str, scale_factor: float, alpha: int = 255) -> img_
     return img
 
 
+def Xflip(img: img_surface) -> img_surface:
+    """An easier way to flip an image horizontally"""
+    return pygame.transform.flip(img, True, False)
+
+
+def Yflip(img: img_surface) -> img_surface:
+    """An easier way to flip an image vertically"""
+    return pygame.transform.flip(img, True, False)
+
+
 class spritesheet(object):
     """Used to Handle Sprite sheets in pygame"""
 
     def __init__(self, filename):
         self.sheet = pygame.image.load(filename).convert()
 
-    def image_at(self, rectangle, colorkey=None, scale_factor=1):
-        rect = pygame.Rect(rectangle)
+    def image_at(
+        self,
+        rectangle: Union[tuple[int | float], pygame.Rect],
+        colorkey=None,
+        scale_factor=1,
+    ):
+        """Gets 1 singular frame from the spritesheet and can scale it
+        if needed
+
+        Args:
+            rectangle (tuple): the rect values for the cropping
+            colorkey (tuple, optional): if needed to remove a color. Defaults to None.
+            scale_factor (float | int, optional): The amount to scale the result by. Defaults to 1.
+
+        Returns:
+            img_surface: the frame you wanted
+        """
+        rect = pygame.Rect(rectangle)  # type: ignore
         image = pygame.Surface(rect.size).convert()
         image.blit(self.sheet, (0, 0), rect)
         if colorkey is not None:
@@ -124,15 +151,44 @@ class spritesheet(object):
             image.set_colorkey(colorkey, pygame.RLEACCEL)
         return scale_image(image, scale_factor)
 
-    def images_at(self, rects, colorkey=None):
+    def images_at(
+        self,
+        rects: list[tuple[int | float] | pygame.Rect],
+        colorkey=None,
+    ):
+        """Gets multiple images from different locations in the spritesheet
+        at once
+
+        Args:
+            rects (list): the list of rect
+            colorkey (tuple, optional): if needed specify the color to remove at the end. Defaults to None.
+
+        Returns:
+            list[img_surface]: the images
+        """
         return [self.image_at(rect, colorkey) for rect in rects]
 
-    def load_strip(self, rect, image_count, colorkey=None):
+    def load_strip(
+        self,
+        rect: tuple[int | float, int | float, int | float, int | float] | pygame.Rect,
+        image_count: int,
+        colorkey=None,
+    ):
+        """Similar to the get images at method but here we get a strip of images
+
+        Args:
+            rect (tuple[int | float] | pygame.Rect): the first image / the starting image from the left
+            image_count (int): the number of images to crop
+            colorkey (tuple, optional): removes a certain color if needed. Defaults to None.
+
+        Returns:
+            list[img_surface]: list of images
+        """
         tups = [
             (rect[0] + rect[2] * x, rect[1], rect[2], rect[3])
             for x in range(image_count)
         ]
-        return self.images_at(tups, colorkey)
+        return self.images_at(tups, colorkey)  # type: ignore
 
     def get_image(self, frame, width, height, scale, colour):
         image = pygame.Surface((width, height)).convert_alpha()
