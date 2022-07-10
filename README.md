@@ -25,6 +25,18 @@ this package requires pillow and pygame to be installed. So usually it should
 by default install it but if it doesn't / gives an error saying it can find pygame or pillow,
 just manually install pygame and pillow then try again.
 
+best way to use is to write
+
+```python
+import kct_pygame_tools as kpt
+```
+
+and from there use kpt.""the class or function""
+
+this package requires pillow and pygame to be installed. So usually it should
+by default install it but if it doesn't / gives an error saying it can find pygame or pillow,
+just manually install pygame and pillow then try again.
+
 # Change Log @KCT
 
 ## 0.0.1 (10/07/2020)
