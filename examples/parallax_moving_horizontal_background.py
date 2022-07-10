@@ -5,6 +5,10 @@ Tests The HorizontalScrollingBG class moves
 only when sprite moves. Also Shows example for
 Making Parallax Effect
 
+Use the left and right arrow keys to move left
+and right like the player. The movement also includes
+friction and slow stopping so the background.
+
 ============================================== 
 """
 
