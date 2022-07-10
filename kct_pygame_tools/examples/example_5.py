@@ -1,5 +1,5 @@
 """
-=================== TEST 4 ===================
+=================== TEST 5 ===================
 
 Tests The Particle System with images and also
 tests the spritesheet class
