@@ -8,7 +8,7 @@ classifiers = [
 
 setup(
     name="kct_pygame_tools",
-    version="2.0.1",
+    version="2.0.2",
     author="KidCoderT",
     author_email="tejas75o25@gmail.com",
     packages=["kct_pygame_tools", "kct_pygame_tools/ui"],
