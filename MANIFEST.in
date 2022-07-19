@@ -1,5 +1,4 @@
 include pyproject.toml
-global-include .txt *.py
 
 # Include the README
 include *.md
