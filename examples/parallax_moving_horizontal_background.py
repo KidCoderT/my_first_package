@@ -67,9 +67,9 @@ def run():
 
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_RIGHT]:
-            speed += acceleration
-        elif pressed[pygame.K_LEFT]:
             speed -= acceleration
+        elif pressed[pygame.K_LEFT]:
+            speed += acceleration
         speed *= friction
 
         for layer in layers:

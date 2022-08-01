@@ -3,11 +3,12 @@ Contains Methods that can handle Scrolling Background and
 Custom Scrolling Backgrounds also.
 """
 
+from abc import ABC, abstractmethod
 from pygame.surface import Surface as surface
 import pygame
 
 
-class ScrollingBG:
+class ScrollingBG(ABC):
     """The Basis For the Scrolling Background including both horizontal,
     Vertical and Any Custom Background if needed
 
@@ -41,6 +42,7 @@ class ScrollingBG:
         display.blit(self.img, (self.bg_2.x, self.bg_2.y))
         display.blit(self.img, (self.bg_3.x, self.bg_3.y))
 
+    @abstractmethod
     def update(self):
         pass
 

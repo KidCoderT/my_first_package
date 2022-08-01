@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+
+
 class ParticlesContainers:
     """the main particle system container class.
     a singular instance can hold one type of particle
@@ -6,7 +9,25 @@ class ParticlesContainers:
     """
 
     def __init__(self):
-        self.particles = []
+        self.__particles = []
+
+    @property
+    def particles(self):
+        """Can be used to get the protected particles
+        attribute, although im not sure why you would want to
+        """
+
+        return self.__particles
+
+    @particles.setter
+    def particles(self, particles: list):
+        """Set the particles attribute, this just makes
+        it easier to setup the particles with a list of particles
+
+        Args:
+            particles (list): the new list of particles to set
+        """
+        self.__particles = particles
 
     def emit(self, screen) -> int:
         """the main update method for a particle.
@@ -17,7 +38,7 @@ class ParticlesContainers:
         """
         to_remove = []
 
-        for particle in self.particles:
+        for particle in self.__particles:
             particle.render(screen)
             particle.update()
 
@@ -25,9 +46,22 @@ class ParticlesContainers:
                 to_remove.append(particle)
 
         for particle in to_remove:
-            self.particles.remove(particle)
+            self.__particles.remove(particle)
 
         return len(to_remove)
+
+    @property
+    def no_of_particles(self) -> int:
+        """Since Ive set the particles variable
+        to private Ive made it so you shouldn't really
+        access it from the outside. but just in case
+        if you want to know how many particles are present
+        Ive made this property method
+
+        Returns:
+            int: the number of particles
+        """
+        return len(self.__particles)
 
     def add_particle(self, particle):
         """This is the method to call when you want to add a particle.
@@ -36,10 +70,10 @@ class ParticlesContainers:
         Args:
             particle (any): the  particle to add
         """
-        self.particles.append(particle)
+        self.__particles.append(particle)
 
 
-class ImageParticleObject:
+class ImageParticleObject(ABC):
     """This is used for particles where an image is involved
     this is the bare minimum setup required when dealing with
     images and here for x and y you will be dealing with the img_rect.
@@ -58,6 +92,7 @@ class ImageParticleObject:
         self.img = img
         self.rect = img.get_rect(center=(x, y))
 
+    @abstractmethod
     def update(self):
         """the particles container will run this every frame to update the image"""
         pass
@@ -67,6 +102,7 @@ class ImageParticleObject:
         if you want to customize the render to oo you can override this method"""
         screen.blit(self.img, self.rect.topleft)
 
+    @abstractmethod
     def should_remove(self):
         """this is where the remove logic is placed and this method will be called
         by the particles container to check whether or not the particle should be removed
@@ -75,7 +111,7 @@ class ImageParticleObject:
         pass
 
 
-class ShapeParticleObject:
+class ShapeParticleObject(ABC):
     """This is used for particles where a shape is involved
     this is the bare minimum setup required when dealing with
     particles  with shapes and here you will mainly  be dealing with x and y.
@@ -91,14 +127,17 @@ class ShapeParticleObject:
     def __init__(self, x, y):
         self.x, self.y = x, y
 
+    @abstractmethod
     def update(self):
         """the particles container will run this every frame to update the image"""
         pass
 
+    @abstractmethod
     def render(self, screen):
         """this will be used to render the shape by the particles container."""
         pass
 
+    @abstractmethod
     def should_remove(self):
         """this is where the remove logic is placed and this method will be called
         by the particles container to check whether or not the particle should be removed

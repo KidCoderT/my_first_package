@@ -1,4 +1,5 @@
 import pygame
+from pygame.font import SysFont, Font as PygameFont
 
 
 def blit_text_center(
@@ -87,3 +88,32 @@ def draw_text_multilined(
 
         # remove the text we just blitted
         text = text[i:]
+
+
+class Font:
+    def __init__(self, font: str, size: int, is_sys_font: bool = False):
+        self.__font = None
+        self.setup_font(font, size, is_sys_font)
+
+    def create_font(self, text, color=(0, 0, 0), bg_color=None, antialias=False):
+        return self.__font.render(text, antialias, color, bg_color)
+
+    @classmethod
+    def all_fonts(cls):
+        return pygame.font.get_fonts()
+
+    def toggle_bold(self, to: bool | None = None):
+        self.__font.set_bold(to if to is not None else not self.__font.bold)
+
+    def toggle_underline(self, to: bool | None = None):
+        self.__font.set_underline(to if to is not None else not self.__font.underline)
+
+    def toggle_italic(self, to: bool | None = None):
+        self.__font.set_italic(to if to is not None else not self.__font.italic)
+
+    @property
+    def font(self):
+        return self.__font
+
+    def setup_font(self, font, size, is_sys_font):
+        self.__font = SysFont(font, size) if is_sys_font else PygameFont(font, size)

@@ -26,7 +26,7 @@ class LeafParticle(particles.ImageParticleObject):
     def __init__(self, img, scatter=False):
         x, y = random.randint(50, int(SCREEN_WIDTH - 50)), -random.randint(-50, 100)
         if scatter:
-            x, y = random.randint(50, int(SCREEN_WIDTH - 50)), -random.randint(
+            x, y = random.randint(50, int(SCREEN_WIDTH - 50)), random.randint(
                 50, int(SCREEN_HEIGHT - 50)
             )
 
@@ -61,7 +61,7 @@ def run():
 
     for _ in range(100):
         removed_amount = leaf_particle_manager.emit(screen)
-        for __ in range(removed_amount):
+        for _ in range(removed_amount):
             leaf_particle_manager.add_particle(LeafParticle(random.choice(leaf_images)))
 
     clock = pygame.time.Clock()
