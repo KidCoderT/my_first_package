@@ -19,14 +19,14 @@ best way to use is to write
 import kct_pygame_tools as kpt
 ```
 
-> Note: !!!IMPORTANT!!! You must install pillow & pygame manually for this module to work
+> Note: !!!IMPORTANT!!! You must install pillow manually for this module to work
 
 and from there use kpt.""the class or function""
 
-this package requires pillow and pygame to be installed manually and to do that just run the following command
+this package requires pillow to be installed manually and to do that just run the following command
 
 ```
-pip install pygame pillow
+pip install pillow
 ```
 
 # Change Log @KCT

@@ -8,7 +8,7 @@ classifiers = [
 
 setup(
     name="kct_pygame_tools",
-    version="4.0.0",
+    version="5.1.0",
     author="KidCoderT",
     author_email="tejas75o25@gmail.com",
     packages=["kct_pygame_tools", "kct_pygame_tools/ui"],
@@ -17,6 +17,6 @@ setup(
     license="LICENSE.txt",
     description="A simple python library that provides utilities for pygame games",
     long_description=open("README.md").read(),
-    install_requires=["pygame", "pillow"],
+    install_requires=["pygame ~= 2.1"],
     classifiers=classifiers,
 )

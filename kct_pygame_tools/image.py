@@ -116,7 +116,7 @@ def Xflip(img: img_surface) -> img_surface:
 
 def Yflip(img: img_surface) -> img_surface:
     """An easier way to flip an image vertically"""
-    return pygame.transform.flip(img, True, False)
+    return pygame.transform.flip(img, False, True)
 
 
 class spritesheet(object):
