@@ -23,7 +23,7 @@ import kct_pygame_tools as kpt
 
 and from there use kpt.""the class or function""
 
-this package requires pillow to be installed manually and to do that just run the following command
+this package requires pillow to be installed manually and to do that just run the following command and then install this package
 
 ```
 pip install pillow
