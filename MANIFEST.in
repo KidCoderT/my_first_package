@@ -1,3 +1,0 @@
-include *.in
-recursive-include examples *.png
-recursive-include examples *.py
