@@ -1,0 +1,3 @@
+include *.in
+recursive-include kct_pygame_tools *.png
+recursive-include kct_pygame_tools *.py
